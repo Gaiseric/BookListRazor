@@ -12,6 +12,7 @@ namespace BookListRazor.Pages.BookList
     public class IndexModel : PageModel
     {
         public void OnGet()
-        {}
+        {
+        }
     }
 }
