@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BookListRazor.Models;
 using Microsoft.EntityFrameworkCore;
+using BookListRazor.Extensions;
 
 namespace BookListRazor.Pages.BookList
 {
@@ -17,27 +18,13 @@ namespace BookListRazor.Pages.BookList
         {
             _db = db; 
         }
+        public string AntiforgeryToken => HttpContext.GetAntiforgeryTokenForJs();
 
         public IEnumerable<Book> Books { get; set; }
 
         public async Task OnGet()
         {
             Books = await _db.Book.ToListAsync();
-        }
-
-        public async Task<IActionResult> OnPostDelete (int id)
-        {
-            var book = await _db.Book.FindAsync(id);
-            if(book == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                _db.Book.Remove(book);
-                await _db.SaveChangesAsync();
-                return RedirectToPage("Index");
-            }
         }
     }
 }

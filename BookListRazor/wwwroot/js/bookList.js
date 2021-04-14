@@ -45,6 +45,9 @@ function Delete(url) {
             $.ajax({
                 type: "DELETE",
                 url: url,
+                headers: {
+                    'X-CSRF-TOKEN': antiForgeryToken()
+                },
                 success: function (data) {
                     if (data.success) {
                         toastr.success(data.message);

@@ -25,4 +25,7 @@
 </div>
 @section Scripts{
     <script src="~/js/bookList.js"></script>
+    <script language="javascript">
+        const antiForgeryToken = () => '@Model.AntiforgeryToken';
+    </script>
 } 
