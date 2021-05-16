@@ -19,9 +19,9 @@ function loadDataTable() {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/BookList/Upsert?id=${data}">Edit</a>
-                        &nbsp;|
-                        <a href="#" onclick=Delete('/api/book?id='+${data})>Delete</a>
+                        <a class="badge rounded bg-success" href="/BookList/Upsert?id=${data}"> <i class="far fa-edit"></i> Edit</a>
+                        &nbsp;
+                        <a class="badge rounded bg-danger" href="#" onclick=Delete('/api/book?id='+${data})> <i class="far fa-trash-alt"></i> Delete</a>
                         </div>`;
                 }, "width": "20%"
             }
