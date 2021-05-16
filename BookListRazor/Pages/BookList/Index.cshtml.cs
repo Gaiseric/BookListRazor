@@ -16,7 +16,7 @@ namespace BookListRazor.Pages.BookList
 
         public IndexModel(ApplicationDbContext db)
         {
-            _db = db; 
+            _db = db;
         }
         public string AntiforgeryToken => HttpContext.GetAntiforgeryTokenForJs();
 
