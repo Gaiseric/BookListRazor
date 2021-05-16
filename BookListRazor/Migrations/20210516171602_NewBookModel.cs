@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookListRazor.Migrations
 {
-    public partial class InitialSqLite : Migration
+    public partial class NewBookModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +14,9 @@ namespace BookListRazor.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Author = table.Column<string>(type: "TEXT", nullable: true),
-                    ISBN = table.Column<string>(type: "TEXT", nullable: true)
+                    Author = table.Column<string>(type: "TEXT", nullable: false),
+                    StartRead = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EndRead = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

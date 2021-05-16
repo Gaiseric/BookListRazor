@@ -4,25 +4,28 @@
     ViewData["Title"] = "List";
 }
 <br />
-<div class="card bg-secondary border-primary mb-5 text-center">
+<div class="card bg-light border-primary mb-5 text-center">
     <div class="card-header">
         <div class="nav nav-pills card-header-pills">
-            <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> &nbsp; New</a>
+            <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
         </div>
     </div>
     <div class="card-body">
         <h2 class="card-title text-center">List of readed books</h2>
         <hr />
-        <table id="DT_load" class="table table-borderless table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th> Author</th>
-                    <th> ISBN</th>
-                    <th></th>
-                </tr>
-            </thead>
-        </table>
+        <div class="table-responsive">
+            <table id="DT_load" class="table table-borderless table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 </div>
 @section Scripts{
