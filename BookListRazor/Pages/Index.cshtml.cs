@@ -19,7 +19,7 @@ namespace BookListRazor.Pages
 
         public IActionResult OnGet()
         {
-            return RedirectToPage("BookList/Index");
+            return Page();
         }
     }
 }

@@ -12,18 +12,35 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "name", "width": "30%" },
-            { "data": "author", "width": "30%" },
-            { "data": "isbn", "width": "20%" },
+            {
+                "data": "name",
+                "render": function (data) {
+                    return `<big> ${data} </big>`;
+                },
+                "width": "30%"
+            },
+            { "data": "author", "width": "20%" },
+            {
+                "data": "startRead",
+                "render": function (data) {
+                    return `<small> ${data.substring(0, 10)} </small>`;
+                },
+                "width": "20%"
+            },
+            {
+                "data": "endRead",
+                "render": function (data) {
+                    return `<small> ${data.substring(0, 10)} </small>`;
+                }, "width": "20%"
+            },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a class="badge rounded bg-success" href="/BookList/Upsert?id=${data}"> <i class="far fa-edit"></i> Edit</a>
-                        &nbsp;
-                        <a class="badge rounded bg-danger" href="#" onclick=Delete('/api/book?id='+${data})> <i class="far fa-trash-alt"></i> Delete</a>
+                        <a class="btn btn-outline-success text-center" href="/BookList/Upsert?id=${data}"> <i class="far fa-edit"></i> <small>Edit</small></a>
+                        <a class="btn btn-outline-danger text-center" href="#" onclick=Delete('/api/book?id='+${data})> <i class="far fa-trash-alt"></i> <small>Delete</small></a>
                         </div>`;
-                }, "width": "20%"
+                }, "width": "10%"
             }
         ],
         "language": {
