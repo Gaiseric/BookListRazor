@@ -19,7 +19,7 @@ namespace BookListRazor.Models
         [RegularExpression(@"[\S\d\s]{1,51}$", ErrorMessage = "No more 50 characters.")]
         public string Author { get; set; }
 
-        [DataType(DataType.Text)]
+        [Required, DataType(DataType.Text)]
         public string Status { get; set; } 
 
         [Required, DataType(DataType.Date)]

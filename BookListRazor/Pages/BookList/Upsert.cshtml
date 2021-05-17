@@ -63,6 +63,20 @@
             </div>
             <br />
             <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Book.Status"></label>
+                </div>
+                <div class="col-9">
+                    <select asp-for="Book.Status" class="form-select" id="exampleSelect1">
+                        <option>Planned</option>
+                        <option>Reading</option>
+                        <option>Readed</option>
+                    </select>
+                    <span asp-validation-for="Book.Status" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
                 <div class="col-4 offset-3">
                     <button type="submit" class="btn btn-outline-success form-control"><i class="fas fa-edit"></i> @(Model.Book.Id != 0 ? "Update" : "Create")</button>
                 </div>

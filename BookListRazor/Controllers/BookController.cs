@@ -45,7 +45,7 @@ namespace BookListRazor.Controllers
                     }
                     return Json(new { data = responce });
                 default:
-                    return RedirectToPage("/Index");
+                    return NotFound();
             }
         }
 
