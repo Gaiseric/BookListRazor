@@ -1,8 +1,9 @@
 ﻿@page
-@model BookListRazor.Pages.BookList.IndexModel
+@model BookListRazor.Pages.BookList.PlannedModel
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "Planned to read";
 }
+
 <br />
 <div class="card bg-light border-primary mb-5 text-center">
     <div class="card-header">
@@ -11,7 +12,7 @@
         </div>
     </div>
     <div class="card-body">
-        <h2 class="card-title text-center">List of readed books</h2>
+        <h2 class="card-title text-center">List of planned to read books</h2>
         <hr />
         <div class="table-responsive">
             <table id="DT_load" class="table table-borderless table-striped" style="width:100%">
@@ -19,8 +20,6 @@
                     <tr>
                         <th>Name</th>
                         <th>Author</th>
-                        <th>Start</th>
-                        <th>End</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -29,7 +28,7 @@
     </div>
 </div>
 @section Scripts{
-    <script src="~/js/bookList.js"></script>
+    <script src="~/js/plannedList.js"></script>
     <script language="javascript">
         const antiForgeryToken = () => '@Model.AntiforgeryToken';
     </script>

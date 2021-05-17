@@ -10,21 +10,13 @@ using BookListRazor.Extensions;
 
 namespace BookListRazor.Pages.BookList
 {
-    public class IndexModel : PageModel
+    public class ReadedModel : PageModel
     {
-        private readonly ApplicationDbContext _db;
-
-        public IndexModel(ApplicationDbContext db)
-        {
-            _db = db;
-        }
         public string AntiforgeryToken => HttpContext.GetAntiforgeryTokenForJs();
 
-        public IEnumerable<Book> Books { get; set; }
-
-        public async Task OnGet()
+        public IActionResult OnGet()
         {
-            Books = await _db.Book.ToListAsync();
+            return Page();
         }
     }
 }
