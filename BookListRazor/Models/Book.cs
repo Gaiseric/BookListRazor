@@ -12,11 +12,11 @@ namespace BookListRazor.Models
         public int Id { get; set; }
 
         [Required]
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Only letters allowed, no more 40 characters.")]
+        [RegularExpression(@"[\S\d\s]{1,101}$", ErrorMessage = "No more 100 characters.")]
         public string Name { get; set; }
 
         [Required]
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,20}$", ErrorMessage = "Only letters allowed, no more 20 characters.")]
+        [RegularExpression(@"[\S\d\s]{1,51}$", ErrorMessage = "No more 50 characters.")]
         public string Author { get; set; }
 
         [Required, DataType(DataType.Date)]
