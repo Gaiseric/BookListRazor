@@ -26,7 +26,7 @@ function loadDataTableReading() {
                 "render": function (data) {
                     return `<big> ${data} </big>`;
                 },
-                "width": "40%"
+                "width": "30%"
             },
             { "data": "author", "width": "30%" },
             {
@@ -43,7 +43,7 @@ function loadDataTableReading() {
                         <a class="btn btn-outline-success text-center" href="/BookList/Upsert?id=${data}"><small> <i class="far fa-edit"></i> Edit</small></a>
                         <a class="btn btn-outline-danger text-center" href="#" onclick=Delete('/api/book?id='+${data})> <small> <i class="far fa-trash-alt"></i> Delete</small></a>
                         </div>`;
-                }, "width": "10%"
+                }, "width": "20%"
             }
         ],
         "language": {
@@ -112,7 +112,7 @@ function loadDataTablePlanned() {
                 "render": function (data) {
                     return `<big> ${data} </big>`;
                 },
-                "width": "50%"
+                "width": "40%"
             },
             { "data": "author", "width": "40%" },
             {
@@ -122,7 +122,7 @@ function loadDataTablePlanned() {
                         <a class="btn btn-outline-success text-center" href="/BookList/Upsert?id=${data}"><small> <i class="far fa-edit"></i> Edit</small></a>
                         <a class="btn btn-outline-danger text-center" href="#" onclick=Delete('/api/book?id='+${data})> <small> <i class="far fa-trash-alt"></i> Delete</small></a>
                         </div>`;
-                }, "width": "10%"
+                }, "width": "20%"
             }
         ],
         "language": {
