@@ -21,9 +21,32 @@ namespace BookListRazor.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(string type)
         {
-            return Json(new { data = await _db.Book.ToListAsync() });
+            List<Book> responce = new List<Book>();
+            switch (type)
+            {
+                case "readed":
+                    foreach (Book b in await _db.Book.ToListAsync())
+                    {
+                        if (b.Status == "Readed") { responce.Add(b); }
+                    }
+                    return Json(new { data = responce });
+                case "reading":
+                    foreach (Book b in await _db.Book.ToListAsync())
+                    {
+                        if (b.Status == "Reading") { responce.Add(b); }
+                    }
+                    return Json(new { data = responce });
+                case "planned":
+                    foreach (Book b in await _db.Book.ToListAsync())
+                    {
+                        if (b.Status == "Planned") { responce.Add(b); }
+                    }
+                    return Json(new { data = responce });
+                default:
+                    return NotFound();
+            }
         }
 
         [AutoValidateAntiforgeryToken]
