@@ -26,9 +26,9 @@ function loadDataTableReading() {
                 "render": function (data) {
                     return `<big> ${data} </big>`;
                 },
-                "width": "30%"
+                "width": "40%"
             },
-            { "data": "author", "width": "20%" },
+            { "data": "author", "width": "30%" },
             {
                 "data": "startRead",
                 "render": function (data) {
@@ -112,9 +112,9 @@ function loadDataTablePlanned() {
                 "render": function (data) {
                     return `<big> ${data} </big>`;
                 },
-                "width": "30%"
+                "width": "50%"
             },
-            { "data": "author", "width": "20%" },
+            { "data": "author", "width": "40%" },
             {
                 "data": "id",
                 "render": function (data) {
