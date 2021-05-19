@@ -1,19 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BookListRazor.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookListRazor.Pages.BookList
 {
     public class UpsertModel : PageModel
     {
         readonly ApplicationDbContext _db;
-
-        static string back;
+        public static string backAdress;
+        static string copyBook;
 
         [BindProperty]
         public Book Book { get; set; }
@@ -25,19 +22,18 @@ namespace BookListRazor.Pages.BookList
 
         public async Task<IActionResult> OnGet(int? id)
         {
-            back = Request.Headers["Referer"].ToString();
+            backAdress = Request.Headers["Referer"].ToString();
             Book = new Book();
             if (id == null)
             {
-                //Create
                 return Page();
             }
-            //Update
             Book = await _db.Book.FindAsync(id);
             if (Book == null)
             {
                 return NotFound();
             }
+            copyBook = Book.Name;
             return Page();
         }
 
@@ -45,16 +41,21 @@ namespace BookListRazor.Pages.BookList
         {
             if (ModelState.IsValid)
             {
-                if (Book.Id == 0)
+                if ((Book.Id == 0) || (copyBook != Book.Name))
                 {
-                    _db.Book.Add(Book);
+                    if (await _db.Book.AnyAsync(b => b.Name == Book.Name))
+                    {
+                        ModelState.AddModelError("Book.Name", "Book with such name already exist.");
+                        return Page();
+                    }
+                    _ = Book.Id == 0 ? _db.Book.Add(Book) : _db.Book.Update(Book);
                 }
                 else
                 {
                     _db.Book.Update(Book);
                 }
                 await _db.SaveChangesAsync();
-                return Redirect(back);
+                return Redirect(backAdress);
             }
             else
             {

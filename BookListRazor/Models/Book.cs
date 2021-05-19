@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace BookListRazor.Models
@@ -20,14 +17,14 @@ namespace BookListRazor.Models
         public string Author { get; set; }
 
         [Required, DataType(DataType.Text)]
-        public string Status { get; set; } 
+        public string Status { get; set; }
 
         [Required, DataType(DataType.Date)]
         [Display(Name = "Start reading")]
-        public DateTime StartRead { get; set; } = new DateTime(2020, 1, 1);
+        public DateTime StartRead { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
         [Required, DataType(DataType.Date)]
         [Display(Name = "End reading")]
-        public DateTime EndRead { get; set; } = new DateTime(2020, 1, 1);
+        public DateTime EndRead { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
     }
 }
