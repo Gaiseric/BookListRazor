@@ -9,7 +9,6 @@ namespace BookListRazor.Pages.BookList
     public class UpsertModel : PageModel
     {
         readonly ApplicationDbContext _db;
-        public static string backAdress;
         static string copyBook;
 
         [BindProperty]
@@ -22,7 +21,6 @@ namespace BookListRazor.Pages.BookList
 
         public async Task<IActionResult> OnGet(int? id)
         {
-            backAdress = Request.Headers["Referer"].ToString();
             Book = new Book();
             if (id == null)
             {
@@ -55,7 +53,7 @@ namespace BookListRazor.Pages.BookList
                     _db.Book.Update(Book);
                 }
                 await _db.SaveChangesAsync();
-                return Redirect(backAdress);
+                return RedirectToPage("/BookList/List");
             }
             else
             {
