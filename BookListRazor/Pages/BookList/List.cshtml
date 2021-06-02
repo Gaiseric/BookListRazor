@@ -4,96 +4,94 @@
     ViewData["Title"] = "Book list";
 }
 <br />
-<section id="tabs" class="project-tab">
-    <div class="container">
-        <div class="row">
-            <nav>
-                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-reading-tab" data-toggle="tab" href="#nav-reading" role="tab" aria-controls="nav-reading" aria-selected="true">Reading</a>
-                    <a class="nav-item nav-link" id="nav-readed-tab" data-toggle="tab" href="#nav-readed" role="tab" aria-controls="nav-readed" aria-selected="false">Readed</a>
-                    <a class="nav-item nav-link" id="nav-planned-tab" data-toggle="tab" href="#nav-planned" role="tab" aria-controls="nav-planned" aria-selected="false">Planned</a>
-                </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-reading" role="tabpanel" aria-labelledby="nav-reading-tab">
-                    <br />
-                    <div class="card bg-light border-primary mb-5 text-center">
-                        <div class="card-header">
-                            <span class="nav nav-pills card-header-pills">
-                                <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
-                            </span>
-                            <h2 class="card-title text-center"><span>Books in reading </span></h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="DT_Reading" class="table table-borderless table-striped" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Author</th>
-                                            <th>Start</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+<div id="vertical-align" class="container">
+    <div class="row">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-reading-tab" data-toggle="tab" href="#nav-reading" role="tab" aria-controls="nav-reading" aria-selected="true">Reading</a>
+                <a class="nav-item nav-link" id="nav-readed-tab" data-toggle="tab" href="#nav-readed" role="tab" aria-controls="nav-readed" aria-selected="false">Readed</a>
+                <a class="nav-item nav-link" id="nav-planned-tab" data-toggle="tab" href="#nav-planned" role="tab" aria-controls="nav-planned" aria-selected="false">Planned</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-reading" role="tabpanel" aria-labelledby="nav-reading-tab">
+                <br />
+                <div class="card bg-light border-primary mb-5 text-center">
+                    <div class="card-header">
+                        <span class="nav nav-pills card-header-pills">
+                            <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
+                        </span>
+                        <h2 class="card-title text-center"><span>Books in reading </span></h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="DT_Reading" class="table table-borderless table-striped" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Author</th>
+                                        <th>Start</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-readed" role="tabpanel" aria-labelledby="nav-readed-tab">
-                    <br />
-                    <div class="card bg-light border-primary mb-5 text-center">
-                        <div class="card-header">
-                            <span class="nav nav-pills card-header-pills">
-                                <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
-                            </span>
-                            <h2 class="card-title text-center"><span>Readed books</span></h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="DT_Readed" class="table table-borderless table-striped" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Author</th>
-                                            <th>Start</th>
-                                            <th>End</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+            </div>
+            <div class="tab-pane fade" id="nav-readed" role="tabpanel" aria-labelledby="nav-readed-tab">
+                <br />
+                <div class="card bg-light border-primary mb-5 text-center">
+                    <div class="card-header">
+                        <span class="nav nav-pills card-header-pills">
+                            <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
+                        </span>
+                        <h2 class="card-title text-center"><span>Readed books</span></h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="DT_Readed" class="table table-borderless table-striped" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Author</th>
+                                        <th>Start</th>
+                                        <th>End</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-planned" role="tabpanel" aria-labelledby="nav-planned-tab">
-                    <br />
-                    <div class="card bg-light border-primary mb-5 text-center">
-                        <div class="card-header">
-                            <span class="nav nav-pills card-header-pills">
-                                <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
-                            </span>
-                            <h2 class="card-title text-center"><span>Books planned to read</span></h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="DT_Planned" class="table table-borderless table-striped" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Author</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+            </div>
+            <div class="tab-pane fade" id="nav-planned" role="tabpanel" aria-labelledby="nav-planned-tab">
+                <br />
+                <div class="card bg-light border-primary mb-5 text-center">
+                    <div class="card-header">
+                        <span class="nav nav-pills card-header-pills">
+                            <a class="btn btn-outline-info" asp-page="Upsert"><i class="fas fa-plus"></i> Add</a>
+                        </span>
+                        <h2 class="card-title text-center"><span>Books planned to read</span></h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="DT_Planned" class="table table-borderless table-striped" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Author</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 @section Scripts{
     <script language="javascript">
         const antiForgeryToken = () => '@Model.AntiforgeryToken';
