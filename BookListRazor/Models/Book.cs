@@ -19,12 +19,12 @@ namespace BookListRazor.Models
         [Required, DataType(DataType.Text)]
         public string Status { get; set; }
 
-        [Required, DataType(DataType.Date)]
+        [DataType(DataType.Date)]
         [Display(Name = "Start reading")]
-        public DateTime StartRead { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+        public DateTime? StartRead { get; set; }
 
-        [Required, DataType(DataType.Date)]
+        [DataType(DataType.Date)]
         [Display(Name = "End reading")]
-        public DateTime EndRead { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+        public DateTime? EndRead { get; set; }
     }
 }

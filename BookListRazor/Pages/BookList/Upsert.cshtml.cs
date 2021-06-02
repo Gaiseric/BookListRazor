@@ -37,16 +37,33 @@ namespace BookListRazor.Pages.BookList
 
         public async Task<IActionResult> OnPost()
         {
+            switch (Book.Status)
+            {
+                case "Reading":
+                    if (Book.StartRead == null)
+                        ModelState.AddModelError("Book.StartRead", "Start reading date required for status. \"Reading\"");
+                    break;
+                case "Readed":
+                    if (Book.StartRead == null)
+                        ModelState.AddModelError("Book.StartRead", "Start reading date required for status \"Readed\".");
+                    else if (Book.EndRead == null)
+                        ModelState.AddModelError("Book.EndRead", "End reading date required for status \"Readed\".");
+                    break;
+                default:
+                    break;
+            }
+            if ((Book.Id == 0) || (copyBook != Book.Name))
+            {
+                if (await _db.Book.AnyAsync(b => b.Name == Book.Name))
+                {
+                    ModelState.AddModelError("Book.Name", "Book with such name already exists.");
+                }
+            }
             if (ModelState.IsValid)
             {
-                if ((Book.Id == 0) || (copyBook != Book.Name))
+                if (Book.Id == 0)
                 {
-                    if (await _db.Book.AnyAsync(b => b.Name == Book.Name))
-                    {
-                        ModelState.AddModelError("Book.Name", "Book with such name already exist.");
-                        return Page();
-                    }
-                    _ = Book.Id == 0 ? _db.Book.Add(Book) : _db.Book.Update(Book);
+                    _db.Book.Add(Book);
                 }
                 else
                 {
