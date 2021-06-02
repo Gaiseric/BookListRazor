@@ -26,14 +26,14 @@ namespace BookListRazor.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("EndRead")
+                    b.Property<DateTime>("EndRead")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("StartRead")
+                    b.Property<DateTime>("StartRead")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
